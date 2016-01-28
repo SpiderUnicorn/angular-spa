@@ -1,0 +1,35 @@
+{
+  "name": "angular-spa",
+  "description": "A clean, basic project for angular with automatic testing",
+  "main": "index.js",
+  "authors": [
+    "Johan Nyström <johannystrom85@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "angular": "^1.4.9",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0",
+    "toastr": "^2.1.2"
+  },
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "less/bootstrap.less",
+                "dist/css/bootstrap.css",
+                "dist/js/bootstrap.js"
+            ]
+        }
+    }
+}
