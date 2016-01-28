@@ -1,70 +1,93 @@
 // Karma configuration
 // Generated on Wed Jan 27 2016 21:57:47 GMT+0100 (CET)
 
-module.exports = function(config) {
-  config.set({
+var wiredep = require('wiredep');
+var bowerFiles = wiredep({
+    devDependencies: true
+}).js;
 
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+module.exports = function (config) {
+    config.set({
 
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
-
-
-    // list of files / patterns to load in the browser
-    files: [
-      'app/**/*.js',
-    ],
+        // base path that will be used to resolve all patterns (eg. files, exclude)
+        basePath: '',
 
 
-    // list of files to exclude
-    exclude: [
-        'app/**/*.spec.js'
-    ],
+        // frameworks to use
+        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['jasmine'],
 
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
+        // list of files / patterns to load in the browser
+        files: [].concat(
+            bowerFiles,
+            'src/**/*.module.js',
+            'src/**/*.js'
+        ),
 
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+        // list of files to exclude
+        exclude: [],
 
 
-    // web server port
-    port: 9876,
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+        preprocessors: {
+            'src/**/!(*.spec)+(.js)': ['coverage']
+        },
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['spec', 'coverage'],
+
+        coverageReporter: {
+            dir: './test/coverage',
+            reporters: [
+                {
+                    type: 'html',
+                    subdir: 'report-html'
+                },
+                {
+                    type: 'lcov',
+                    subdir: 'report-lcov'
+                },
+                {
+                    type: 'text-summary'
+                }
+            ]
+        },
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+        // web server port
+        port: 9876,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
 
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
 
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
 
-    // Concurrency level
-    // how many browser should be started simultaneous
-    concurrency: Infinity
-  });
+
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        browsers: ['PhantomJS'],
+
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: true,
+
+        // Concurrency level
+        // how many browser should be started simultaneous
+        concurrency: Infinity
+    });
 };

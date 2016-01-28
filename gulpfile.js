@@ -8,17 +8,40 @@ var plugins = require('gulp-load-plugins')({
 var color = plugins.util.colors;
 
 /* Path variables */
+var client = './src/';
 var path = {
-    client: './app/',
-    css: './app/**/*.css',
-    index: './app/index.html',
-    js: ['app/**/*.js', './*.js'],
+    client: client,
+    css: client + '**/*.css',
+    index: client + 'index.html',
+    js: [client + '**/*.js', './*.js'],
     injectableJs: [
-        'app/**/*.js',
-        '!app/**/*.spec.js'
+        client + '**/*.js',
+        '!src/**/*.spec.js'
     ]
 };
 
+/* setup */
+var Server = require('karma').Server;
+
+gulp.task('serve', function() {
+    log('watching for new / modified files');
+    var watch = require('gulp-watch');
+
+    watch(path.client + '**/*.js', function() {
+        gulp.start('inject');
+    });
+    watch(path.client + '**/*.css', function() {
+        gulp.start('styles');
+    });
+})
+
+
+gulp.task('test', ['lint'], function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true,
+    }, done).start();
+});
 
 /**
     Task: lint
@@ -39,8 +62,13 @@ gulp.task('lint', function () {
         .pipe(plugins.jscs());
 });
 
-gulp
 
+gulp.task('styles', function () {
+    return gulp
+        .src(path.css)
+        .pipe(plugins.autoprefixer({ browsers: ['last 2 versions', '> 5%']}))
+        .pipe(gulp.dest(path.client));
+})
 
 /**
     Task: inject
@@ -48,7 +76,7 @@ gulp
     Automaticly injects css and js into index.html.
 
 */
-gulp.task('inject', ['inject-vendor', 'inject-angular', 'inject-css'], function() {
+gulp.task('inject', ['inject-vendor', 'inject-angular', 'inject-css'], function () {
     log('Injecting css/js into index.html');
 });
 
