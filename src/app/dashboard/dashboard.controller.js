@@ -5,8 +5,6 @@
         .module('app.dashboard')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = [''];
-
     /* @ngInject */
     function DashboardController(){
         var vm = this;

@@ -1,13 +1,20 @@
-describe('DashboardController', function () {
-    var dashboardController;
+describe('ControllerForTest', function () {
+    var $controller;
+    var ControllerForTest;
 
-    beforeEach(angular.mock.module('app.dashboard'));
+    beforeEach(function () {
+        module('app.dashboard');
+    });
 
-    beforeEach(inject(function($controller) {
-        dashboardController = $controller('DashboardController', {});
+    beforeEach(inject(function (_$controller_) {
+        $controller = _$controller_;
     }));
 
-    it('should be created successfully', function() {
-        expect(dashboardController).toBeUndefined();
+    it('is defined', function () {
+        // This line can also be in the beforeEach.
+        // Saves having to repetitively instantiate the controller.
+        ControllerForTest = $controller('DashboardController');
+
+        expect(ControllerForTest).toBeDefined();
     });
 });
