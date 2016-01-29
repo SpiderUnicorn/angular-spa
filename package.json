@@ -32,6 +32,8 @@
     "karma-phantomjs-launcher": "^0.2.3",
     "karma-spec-reporter": "0.0.23",
     "phantomjs": "^2.1.2",
-    "wiredep": "^3.0.0"
+    "require-dir": "^0.3.0",
+    "wiredep": "^3.0.0",
+    "wrench": "^1.5.8"
   }
 }
