@@ -15,4 +15,4 @@ Use bower and npm to install dependencies.
 
 
 ## Run
-The app is best used with gulp.
+The app is best used with gulp. See the following list of commands
