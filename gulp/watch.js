@@ -22,11 +22,9 @@ gulp.task('watch', function () {
     browserSync.init({
 
         server: {
-            baseDir: ['./src'],
-            directory: true,
-            routes: {
-                "../bower_components": "bower_components",
-            }
+            baseDir: ['./'],
+            directory: false,
+            index: 'src/index.html'
         },
         open: true
     });
