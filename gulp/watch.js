@@ -20,8 +20,13 @@ gulp.task('watch', function () {
     });
 
     browserSync.init({
+
         server: {
-            baseDir: './ ',
+            baseDir: ['./src'],
+            directory: true,
+            routes: {
+                "../bower_components": "bower_components",
+            }
         },
         open: true
     });

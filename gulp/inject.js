@@ -31,8 +31,8 @@ gulp.task('inject-angular', function () {
     return gulp
         .src(config.paths.index)
         .pipe(inject(
-            gulp.src(config.paths.injectableJs)
-            .pipe(sort())
+        gulp.src(config.paths.injectableJs)
+        .pipe(sort()), { ignorePath: '/src/', addRootSlash:false}
         ))
         .pipe(gulp.dest(config.paths.client));
 });
@@ -45,7 +45,9 @@ gulp.task('inject-css', function () {
         .src(config.paths.index)
         .pipe(inject(
             gulp.src(config.css), {
-                read: false
+                read: false,
+                ignorePath:'/src/',
+                addRootSlash: false
             }))
         .pipe(gulp.dest(config.paths.client));
 });
