@@ -1,42 +1,47 @@
 {
-    "name": "angular-spa",
-    "version": "0.0.1",
-    "description": "A clean, basic project for angular with automatic testing",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/SpiderUnicorn/angular-spa"
-    },
-    "scripts": {
-        "test": "gulp test",
-        "testkarma": "karma start karma.conf.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "gulp": "^3.9.0",
-        "gulp-angular-filesort": "^1.1.1",
-        "gulp-autoprefixer": "^3.1.0",
-        "gulp-concat": "^2.6.0",
-        "gulp-csscss": "^0.1.2",
-        "gulp-if": "^2.0.0",
-        "gulp-inject": "^3.0.0",
-        "gulp-jscs": "^3.0.2",
-        "gulp-jshint": "^2.0.0",
-        "gulp-load-plugins": "^1.2.0",
-        "gulp-util": "^3.0.7",
-        "gulp-watch": "^4.3.5",
-        "jasmine": "^2.4.1",
-        "jshint": "^2.9.1",
-        "jshint-stylish": "^2.1.0",
-        "karma": "^0.13.19",
-        "karma-chrome-launcher": "^0.2.2",
-        "karma-coverage": "^0.5.3",
-        "karma-jasmine": "^0.3.6",
-        "karma-phantomjs-launcher": "^0.2.3",
-        "karma-spec-reporter": "0.0.23",
-        "phantomjs": "^2.1.2",
-        "require-dir": "^0.3.0",
-        "wiredep": "^3.0.0",
-        "wrench": "^1.5.8"
-    }
+  "name": "angular-spa",
+  "version": "0.0.1",
+  "description": "A clean, basic project for angular with automatic testing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpiderUnicorn/angular-spa"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "testkarma": "karma start karma.conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-protractor": "0.0.7",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-csscss": "^0.1.2",
+    "gulp-if": "^2.0.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-protractor": "^2.1.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "jasmine": "^2.4.1",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "karma-spec-reporter": "0.0.23",
+    "lodash": "^4.3.0",
+    "phantomjs": "^2.1.2",
+    "protractor": "^3.0.0",
+    "require-dir": "^0.3.0",
+    "wiredep": "^3.0.0",
+    "wrench": "^1.5.8"
+  }
 }

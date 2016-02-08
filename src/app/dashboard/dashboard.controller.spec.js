@@ -1,4 +1,4 @@
-describe('ControllerForTest', function () {
+ describe('ControllerForTest', function () {
     var $controller;
     var ControllerForTest;
 
