@@ -9,14 +9,14 @@
     <!-- endbower -->
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="/src/styles/site.css">
+    <link rel="stylesheet" href="styles/site.css">
     <!-- endinject -->
 
 </head>
 <body>
     <h1></h1>
 
-    <div ng-include="'/src/app/layout/shell.html'"></div>
+    <div ng-include="'app/layout/shell.html'"></div>
 
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -27,11 +27,12 @@
     <!-- endbower -->
 
     <!-- inject:js -->
-    <script src="/src/app/layout/shell.module.js"></script>
-    <script src="/src/app/dashboard/dashboard.module.js"></script>
-    <script src="/src/app/dashboard/dashboard.route.js"></script>
-    <script src="/src/app/dashboard/dashboard.controller.js"></script>
-    <script src="/src/app.module.js"></script>
+    <script src="app/layout/shell.module.js"></script>
+    <script src="app/layout/as-top-nav.js"></script>
+    <script src="app/dashboard/dashboard.module.js"></script>
+    <script src="app/dashboard/dashboard.route.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app.module.js"></script>
     <!-- endinject -->
 
 </body>

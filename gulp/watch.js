@@ -19,15 +19,24 @@ gulp.task('watch', function () {
         gulp.start('styles');
     });
 
+    browserSync.use(spa({
+        selector: "[ng-app]",
+        history: {
+            index: '/index.html'
+        }
+    }));
+
     browserSync.init({
 
         server: {
-            baseDir: ['./'],
-            directory: false,
-            index: 'src/index.html'
+            baseDir: './',
+            routes: {
+
+            }
         },
-        open: true
+        open: false
     });
 
     watch(config.paths.src + "**/*.html").on('change', browserSync.reload);
 });
+
