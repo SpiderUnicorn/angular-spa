@@ -17,4 +17,4 @@
 
 /*jslint node: true */
 var requireDir = require('require-dir');
-requireDir('./gulp');
+requireDir('./gulp/tasks');
