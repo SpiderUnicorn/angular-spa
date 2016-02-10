@@ -1,7 +1,8 @@
 /*jslint node: true */
 
 module.exports = function() {
-    var client = './src/';
+    var client = './src/client/';
+    var server = './src/server/';
 
     var config = {
         css: client + '**/*.css',
@@ -11,9 +12,12 @@ module.exports = function() {
             './gulp/*.js',
             './*.js'
         ],
+        source: 'src/',
 
         paths: {
             src: client,
+            nodeServer: './src/server/app.js',
+            server: server,
             client: client,
             test: './test',
             index: client + 'index.html',
@@ -21,7 +25,10 @@ module.exports = function() {
                 client + '**/*.js',
                 '!src/**/*.spec.js'
             ]
-        }
+        },
+        defaultPort: 7203,
+        /* delay for browser sync */
+        browserReloadDelay: 1000
     };
 
     return config;

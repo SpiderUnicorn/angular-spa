@@ -1,7 +1,7 @@
 /*jslint node: true */
 
 module.exports = function() {
-    var client = './src/';
+    var client = './src/client/';
 
     var config = {
         css: client + '**/*.css',
