@@ -12,6 +12,10 @@ var filter = require('gulp-filter');
 var csso = require('gulp-csso');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
+var sourcemaps = require('gulp-sourcemaps');
+var lazypipe = require('lazypipe');
 
 var config = require('../config')();
 var util = require('../gulp.utils')();
@@ -77,6 +81,7 @@ gulp.task('optimize', ['inject', 'fonts', 'images'], function () {
     var cssFilter = filter('**/*.css', {restore:true});
     var jsLibFilter = filter('**/lib.js', {restore:true});
     var jsAppFilter = filter('**/app.js', {restore:true});
+    var notIndexFilter = filter(['**/*', '!**/index.html'], {restore:true});
 
     return gulp
         .src(config.paths.index)
@@ -86,7 +91,7 @@ gulp.task('optimize', ['inject', 'fonts', 'images'], function () {
         }), {
             starttag: '<!-- inject:templates:js -->'
         }))
-        .pipe(useref({ searchPath: './' }))
+        .pipe(useref({searchPath: './'}, lazypipe().pipe(sourcemaps.init, {loadMaps: true})))
         .pipe(cssFilter)
         .pipe(csso())
         .pipe(cssFilter.restore)
@@ -97,6 +102,13 @@ gulp.task('optimize', ['inject', 'fonts', 'images'], function () {
         .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(jsAppFilter.restore)
+        .pipe(notIndexFilter)
+        .pipe(rev())
+        .pipe(notIndexFilter.restore)
+        .pipe(revReplace())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(config.build))
+        .pipe(rev.manifest())
         .pipe(gulp.dest(config.build));
 });
 
