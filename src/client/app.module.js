@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module('app', [
+        'app.core',
         'app.dashboard',
         'app.shell'
     ]);

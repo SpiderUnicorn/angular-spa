@@ -14,7 +14,12 @@
 
 */
 
-
 /*jslint node: true */
 var requireDir = require('require-dir');
 requireDir('./gulp/tasks');
+
+var gulp = require('gulp');
+var taskListing = require('gulp-task-listing');
+
+gulp.task('help', taskListing);
+gulp.task('default', ['help']);

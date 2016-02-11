@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-strict-di>
+
 <head>
     <title></title>
 
+    <!--build:css styles/lib.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="../bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
     <!-- endbower -->
 
+    <!--build:css styles/app.css -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="styles/site.css">
+    <link rel="stylesheet" href="/.tmp/site.css">
     <!-- endinject -->
+    <!-- endbuild -->
 
 </head>
+
 <body>
     <h1></h1>
 
     <div ng-include="'app/layout/shell.html'"></div>
 
+    <!-- build:js js/lib.js -->
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="../bower_components/toastr/toastr.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/toastr/toastr.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
 
+    <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="/src/client/app/layout/shell.module.js"></script>
     <script src="/src/client/app/layout/as-top-nav.js"></script>
     <script src="/src/client/app/dashboard/dashboard.module.js"></script>
     <script src="/src/client/app/dashboard/dashboard.route.js"></script>
     <script src="/src/client/app/dashboard/dashboard.controller.js"></script>
+    <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app.module.js"></script>
     <!-- endinject -->
 
+    <!-- inject:templates:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
 </body>
+
 </html>

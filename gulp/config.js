@@ -5,14 +5,20 @@ module.exports = function() {
     var server = './src/server/';
 
     var config = {
-        css: client + '**/*.css',
+        css: './.tmp/*.css',
 
         js: [
             client + '**/*.js',
             './gulp/*.js',
             './*.js'
         ],
+        html: client + '**/*.html',
         source: 'src/',
+        temp: './.tmp/',
+        build: './dist/',
+        fonts: './bower_components/font-awesome/fonts/**/*.*',
+        images: client + '/images/**/*.*',
+        htmlTemplates: client + 'app/**/*.html',
 
         paths: {
             src: client,
@@ -24,11 +30,22 @@ module.exports = function() {
             injectableJs: [
                 client + '**/*.js',
                 '!src/**/*.spec.js'
-            ]
+            ],
+            css: client + 'styles/*.css'
         },
         defaultPort: 7203,
         /* delay for browser sync */
-        browserReloadDelay: 1000
+        browserReloadDelay: 1000,
+
+        /* templatecache */
+        templateCache: {
+            file: 'templates.js',
+            options: {
+                module: 'app.core',
+                standAlone: false,
+                root: 'app/'
+            }
+        }
     };
 
     return config;
