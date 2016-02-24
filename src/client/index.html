@@ -3,6 +3,7 @@
 
 <head>
     <title></title>
+    <base href="/">
 
     <!--build:css styles/lib.css -->
     <!-- bower:css -->
@@ -34,11 +35,11 @@
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->
+    <script src="/src/client/app/layout/shell.module.js"></script>
+    <script src="/src/client/app/layout/as-top-nav.js"></script>
     <script src="/src/client/app/dashboard/dashboard.module.js"></script>
     <script src="/src/client/app/dashboard/dashboard.route.js"></script>
     <script src="/src/client/app/dashboard/dashboard.controller.js"></script>
-    <script src="/src/client/app/layout/shell.module.js"></script>
-    <script src="/src/client/app/layout/as-top-nav.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app.module.js"></script>
     <!-- endinject -->
@@ -48,5 +49,4 @@
     <!-- endbuild -->
 
 </body>
-
 </html>
